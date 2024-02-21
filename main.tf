@@ -16,9 +16,9 @@ provider "azurerm" {
 }
 
 module "azure-backup" {
-  source              = "ravensorb/azure-backup/azurerm"
+  source              = "app.terraform.io/derkoe-hashi-tutorial/azure-backup/azurerm"
   version             = "1.0.2"
-  resource_group_name = "${var.prefix}-public"
+  resource_group_name = "${var.prefix}-private"
 }
 
 resource "azurerm_resource_group" "myresourcegroup" {
