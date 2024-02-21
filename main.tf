@@ -15,6 +15,12 @@ provider "azurerm" {
   }
 }
 
+module "azure-backup" {
+  source              = "ravensorb/azure-backup/azurerm"
+  version             = "1.0.2"
+  resource_group_name = "${var.prefix}-public"
+}
+
 resource "azurerm_resource_group" "myresourcegroup" {
   name     = "${var.prefix}-workshop"
   location = var.location
@@ -132,7 +138,7 @@ resource "azurerm_linux_virtual_machine" "catapp" {
 
   tags = {
     Environment = "prod"
-    Department = "cats"
+    Department  = "cats"
   }
 
   # Added to allow destroy to work correctly.
